@@ -108,6 +108,25 @@ def regex_demo():
     # {1,2} 出现1到2次
     print(re_sub)
 
+    # 示例
+    # 需求:截取::后面的内容
+    data = 'Thu Feb 15 17:46:04 2007::uzifzf@dpyivihw.gov::1171590364-6-8'
+    pattern = '\d+-\d+-\d+'
+    re_search = re.search(pattern, data)
+    if re_search is not None:
+        print(re_search.group())
+
+    # 默认是贪婪匹配模式
+    pattern = '.+(\d+-\d+-\d+)'
+    re_search = re.search(pattern, data)
+    if re_search is not None:
+        print(re_search.group(1))
+
+    # 设置非贪婪匹配模式
+    pattern = '.+?(\d+-\d+-\d+)'
+    re_search = re.search(pattern, data)
+    if re_search is not None:
+        print(re_search.group(1))
 
 if __name__ == '__main__':
     regex_demo()
