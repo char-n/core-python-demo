@@ -71,3 +71,48 @@ print(findall)
 for find in findall:
     print(find)
 
+# 8.匹配所有能够表示 Python 长整数的字符串集。
+pattern = '\d+[lL]'
+data = '12l'
+re_search = re.search(pattern, data)
+my_print(re_search)
+
+# 9.匹配所有能够表示 Python 浮点数的字符串集
+pattern = '\d+\.\d+'
+data = '0.3333'
+re_search = re.search(pattern,data)
+my_print(re_search)
+
+
+# 10.匹配所有能够表示 Python 复数的字符串集
+# 复数 2+3i, 4, 5i
+pattern = '(\d)*\+?\d*i?'
+data = '2+3i'
+# data = '4i'
+data = '1+i'
+data = '2'
+re_search = re.search(pattern, data)
+my_print(re_search)
+
+'''
+11.匹配所有能够表示有效电子邮件地址的集合（从一个宽松的正则表达式开始，然
+后尝试使它尽可能严谨，不过要保持正确的功能）。
+'''
+# 汉字正则：\u4e00-\u9fa5
+pattern = '[a-zA-Z0-9\u4e00-\u9fa5_-]+@([a-zA-Z0-9]+)+([\.a-zA-Z0-9])+'
+data = '123@qq.com'
+data = '123@www.github.com'
+data = '张三@qq.com'
+
+re_search = re.search(pattern, data)
+my_print(re_search)
+
+'''
+12.匹配所有能够表示有效的网站地址的集合（URL） （从一个宽松的正则表达式开始，
+然后尝试使它尽可能严谨，不过要保持正确的功能）。
+'''
+pattern = 'https*://([a-zA-Z0-9])+([\.a-zA-Z0-9])+'
+data = 'https://niuzhifa.github.io'
+data = 'http://127.0.0.1'
+re_search = re.search(pattern, data)
+my_print(re_search)
